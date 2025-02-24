@@ -1,9 +1,10 @@
+// 1st way of using the user defined module
 const mat = require('./math');
 
 console.log(mat.add(2,3));
 console.log(mat.sub(2,3));
 
-
+// 2nd way of using the user defined module
 const { add, sub } = require('./math');
 
 console.log(add(4,3));
