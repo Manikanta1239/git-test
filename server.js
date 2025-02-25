@@ -75,3 +75,32 @@ const PORT = 5500;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+// GET a book by id
+app.get('/books/:id', (req, res) => {
+    const books = readBooksFromFile();
+    const { id } = req.params;
+    const book = books.find(book => book.id === id);
+    if (book) {
+        res.json(book);
+    } else {
+        res.status(404).json({ message: 'Book not found' });
+    }
+});
+
+/*
+    Input:
+    GET /books/123
+    Output:
+    {
+        "id": "123",
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald"
+    }
+    Input:
+    GET /books/456
+    Output:
+    {
+        "message": "Book not found"
+    }
+*/
