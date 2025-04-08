@@ -3,7 +3,7 @@ const express = require('express');
 const fs = require('fs');
 const app = express();
 
-const dbFilePath = 'db.json';
+const dbFilePath = './db.json';
 
 // Middleware to parse JSON bodies
 app.use(express.json());
